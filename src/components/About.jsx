@@ -126,6 +126,7 @@
 import React, { useContext } from 'react';
 import { themeContext } from '../context/Context';
 import { FaLaptopCode, FaUserGraduate, FaBullseye } from 'react-icons/fa';
+import photo from "../assets/image.png";
 
 const About = () => {
     const { theme } = useContext(themeContext);
@@ -153,7 +154,7 @@ const About = () => {
                     <div className="w-full md:w-5/12 lg:w-4/12 relative">
                         <div className="relative group">
                             <img
-                                src="https://via.placeholder.com/400x400" // Replace with your image
+                                src={photo} // Replace with your image
                                 alt="Soumen Mandal"
                                 className="rounded-3xl shadow-lg transform transition-all duration-500 group-hover:scale-105"
                             />
