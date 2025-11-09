@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
-import photo from "../assets/image.png";
+// import photo from "../assets/image.png";
+import photo from "../assets/Photo.jpeg";
+import photo_bw from "../assets/photo_bw.jpeg";
 import { Link } from 'react-router-dom';
 import { themeContext } from '../context/Context';
 
@@ -12,13 +14,48 @@ const Home = () => {
                 } pt-5 min-h-screen flex flex-col justify-center items-center`}>
             <div className="flex flex-col justify-center items-center gap-8 px-4">
                 {/* Profile Image */}
-                <div className="flex justify-center">
+                {/* <div className="flex justify-center">
                     <img
-                        className={`h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 border-2 ${theme === 'dark' ? 'border-yellow-50' : 'border-slate-600'} object-contain rounded-full hover:scale-110 transition-transform duration-200`}
+                        className={`h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 border-2 ${theme === 'dark' ? 'border-yellow-50' : 'border-slate-600'} object-contain rounded-full 
+                                    hover:scale-110 transition-transform duration-200
+                                    `}
                         src={photo}
                         alt="Photo"
-                    />
+                    /> */}
+                {/* <img
+                        className={`h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 border-2 ${theme === 'dark' ? 'border-yellow-50' : 'border-slate-600'} opacity-0 object-contain rounded-full 
+                                    hover:scale-110 transition-transform duration-200
+                                    hover:opacity-100`}
+                        src={photo_bw}
+                        alt="Photo"
+                    /> */}
+                {/* </div> */}
+                {theme === 'dark' ? (<div className="flex justify-center">
+                    <div className={`relative
+                                    h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64
+                                    rounded-full overflow-hidden
+                                    border-2 border-yellow-50
+                                    transition-transform duration-200 group
+                                    hover:scale-110`}>
+                        <img className='h-full w-full object-contain duration-200 group-hover:opacity-0' src={photo} alt='Photo' />
+                        <img className='h-full w-full object-contain absolute inset-0 opacity-0 duration-200 group-hover:opacity-100' src={photo_bw} alt='Photo' />
+
+                    </div>
                 </div>
+                ) : (
+                    theme !== 'dark' && <div className="flex justify-center">
+                        <div className={`relative
+                                    h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64
+                                    rounded-full overflow-hidden
+                                    border-2 border-slate-600
+                                    transition-transform duration-200 group
+                                    hover:scale-110`}>
+                            <img className='h-full w-full object-contain duration-200 group-hover:opacity-0' src={photo_bw} alt='Photo' />
+                            <img className='h-full w-full object-contain absolute inset-0 opacity-0 duration-200 group-hover:opacity-100' src={photo} alt='Photo' />
+
+                        </div>
+                    </div>)}
+
 
                 {/* Introduction Section */}
                 <div className="flex flex-col gap-6 md:w-2/4 text-center md:text-left ">
