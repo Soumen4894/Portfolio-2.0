@@ -65,7 +65,7 @@ const Home = () => {
                                 Recent Project
                             </button>
                         </a>
-                        <a href='https://shorturl.at/P3u0q' target='_blank'>
+                        <a href='https://shorturl.at/0EvfK' target='_blank'>
                             <button
                                 className={`p-4 bg-gradient-to-r ${theme === 'dark'
                                     ? 'from-fuchsia-600 to-yellow-700 hover:from-yellow-700 hover:to-fuchsia-600'
