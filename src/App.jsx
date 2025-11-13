@@ -4,7 +4,9 @@ import Navbar from './components/Navbar'
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useNavigate,
+  useLocation
 } from "react-router-dom";
 import About from './components/About';
 import Skills from './components/Skills';
@@ -20,22 +22,21 @@ import MessageToast from './components/MessageToast';
 
 const App = () => {
   const [timer, setTimer] = useState(true);
-  const audioRef = useRef(null); 
+  const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
     const timer2 = setTimeout(() => {
+      if(location.pathname === "/" || location.pathname === "/about" || location.pathname === "/skills" || location.pathname === "/projects" || location.pathname === "/contact"){
+        navigate("/");
+      }
       setTimer(false)
     }, 2000)
     return () => clearTimeout(timer2)
-    // const timer1 = setTimeout(() => {
-    //     audioRef.current?.play();
-    //     console.log("played");
-    // }, 5000); // 3000ms = 3 seconds
-
-    // return () => clearTimeout(timer1); // Cleanup on unmount
   }, [])
+  // console.log(location);
   return (
     <Context>
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         {timer ? (<Animation />) : (
           <>
             <Navbar />
@@ -55,7 +56,7 @@ const App = () => {
             <Footer/>
           </>
         )}
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </Context>
   );
 };
