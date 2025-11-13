@@ -50,6 +50,7 @@ const Home = () => {
                                     border-2 border-slate-600
                                     transition-transform duration-200 group
                                     hover:scale-110`}>
+                            
                             <img className='h-full w-full object-contain duration-200 group-hover:opacity-0' src={photo_bw} alt='Photo' />
                             <img className='h-full w-full object-contain absolute inset-0 opacity-0 duration-200 group-hover:opacity-100' src={photo} alt='Photo' />
 

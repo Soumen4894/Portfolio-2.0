@@ -35,11 +35,8 @@ const Navbar = () => {
 
             {/* Links (Responsive) */}
             <div
-                className={`absolute inset-x-0 top-16 bg-gradient-to-r ${
-                    theme === 'dark'
-                        ? 'text-white from-yellow-700 to-fuchsia-600'
-                        : 'from-yellow-200 to-green-200'
-                } md:relative md:top-0 md:flex md:gap-10 md:items-center md:bg-transparent ${
+                className={`absolute inset-x-0 top-16 
+                md:relative md:top-0 md:flex md:gap-10 md:items-center md:bg-transparent ${
                     menuOpen ? 'flex flex-col gap-6 py-4 px-8' : 'hidden'
                 }`}>
                 <div className="cursor-pointer">
