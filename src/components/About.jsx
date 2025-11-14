@@ -11,7 +11,7 @@ const About = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        navigate("/");
+        navigate("/about");
     },[])
 
     return (
