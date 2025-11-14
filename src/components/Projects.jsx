@@ -80,12 +80,16 @@ import { themeContext } from '../context/Context';
 
 const Projects = () => {
     const { theme } = useContext(themeContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate("/");
+    }, [])
 
     return (
         <div
-            className={`${
-                theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-yellow-50 text-gray-900'
-            } animate-slide-down min-h-screen py-8`}
+            className={`${theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-yellow-50 text-gray-900'
+                } animate-slide-down min-h-screen py-8`}
         >
             <div className="text-center">
                 <h1 className="font-gFont text-4xl mb-6">Projects</h1>

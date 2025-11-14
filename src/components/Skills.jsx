@@ -88,6 +88,11 @@ import { themeContext } from '../context/Context';
 
 const Skills = () => {
     const { theme } = useContext(themeContext);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate("/");
+    }, [])
 
     return (
         <div className={`animate-slide-down h-screen font-gFont ${theme === 'dark' ? 'bg-slate-800 text-white' : 'bg-yellow-50'}`}>
