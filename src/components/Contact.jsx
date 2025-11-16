@@ -7,11 +7,11 @@ import { themeContext } from '../context/Context';
 const Contact = () => {
     const { theme } = useContext(themeContext);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    useEffect(() => {
-        navigate("/");
-    }, [])
+    // useEffect(() => {
+    //     navigate("/");
+    // }, [])
 
     return (
         <div

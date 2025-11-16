@@ -8,16 +8,16 @@ import { useNavigate } from 'react-router-dom';
 
 const About = () => {
     const { theme } = useContext(themeContext);
-    const navigate = useNavigate();
-    const location = useLocation();
+    // const navigate = useNavigate();
+    // const location = useLocation();
 
-    if(location.pathname !== "/about"){
-        navigate("/about");
-    }
+    // if(location.pathname !== "/about"){
+    //     navigate("/about");
+    // }
 
-    useEffect(()=>{
-        navigate("/about");
-    },[])
+    // useEffect(()=>{
+    //     navigate("/about");
+    // },[])
 
     return (
         <div
