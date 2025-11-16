@@ -3,21 +3,9 @@ import { themeContext } from '../context/Context';
 import { FaLaptopCode, FaUserGraduate, FaBullseye } from 'react-icons/fa';
 import photo from "../assets/Photo.jpeg";
 import photo_bw from "../assets/photo_bw.jpeg";
-import { use } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 const About = () => {
     const { theme } = useContext(themeContext);
-    // const navigate = useNavigate();
-    // const location = useLocation();
-
-    // if(location.pathname !== "/about"){
-    //     navigate("/about");
-    // }
-
-    // useEffect(()=>{
-    //     navigate("/about");
-    // },[])
 
     return (
         <div

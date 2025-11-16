@@ -1,17 +1,46 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { VscHome } from 'react-icons/vsc';
 import { FiPhoneCall } from 'react-icons/fi';
 import { TfiEmail } from 'react-icons/tfi';
+import { useForm } from '@formspree/react';
 import { themeContext } from '../context/Context';
 
 const Contact = () => {
     const { theme } = useContext(themeContext);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [message, setMessage] = useState('');
 
-    // const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     navigate("/");
-    // }, [])
+    const [state, handleSubmit] = useForm("mwpanpjl");
+    if (state.succeeded) {
+        return (
+            <div
+                className={`flex flex-col items-center justify-center text-center min-h-screen p-10 
+    ${theme === "dark" ? "bg-slate-900 text-white" : "bg-green-100 text-black"}
+    animate-fade-in`}
+            >
+
+                <h2 className="text-4xl font-bold mb-4">🎉 Thank You!</h2>
+
+                <p className="text-lg max-w-md mb-8">
+                    Your message has been successfully sent.
+                    I will get back to you as soon as possible.
+                </p>
+
+                <button
+                    onClick={() => window.location.reload()}
+                    className={`bg-gradient-to-r ${theme === "dark"
+                            ? "from-fuchsia-600 to-yellow-700 text-white"
+                            : "from-green-300 to-yellow-300 text-black"
+                        } py-2 px-8 rounded-md hover:scale-105 transition-transform duration-200`}
+                >
+                    Go Back
+                </button>
+            </div>
+        )
+    }
 
     return (
         <div
@@ -72,29 +101,32 @@ const Contact = () => {
 
                 {/* Contact Form */}
                 <div className="flex justify-center w-full md:w-1/2">
-                    <form className="flex flex-col border border-gray-300 rounded-md w-full sm:w-96 p-6 gap-4 bg-white shadow-md">
+                    <form className="flex flex-col border border-gray-300 rounded-md w-full sm:w-96 p-6 gap-4 bg-white shadow-md"
+                        onSubmit={handleSubmit}>
                         <input
-                            className={`p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
-                            type="text"
+                            className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
+                            // value={name} type="text" onChange={(e => setName(e.target.value))}
                             placeholder="Name"
+                            name='name'
                         />
                         <input
-                            className={`p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
-                            type="email"
+                            className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
+                            id='email' type="email" name='email'
                             placeholder="Email"
                         />
                         <input
-                            className={`p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
+                            className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
                             type="text"
                             placeholder="Phone"
                         />
                         <textarea
-                            className={`p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
-                            placeholder="Message"
+                            className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
+                            id='message' name='message' placeholder="Message"
                         />
                         <div className="flex justify-center">
                             <button
-                                className={`bg-gradient-to-r ${theme === 'dark' ? 'from-fuchsia-600 to-yellow-700 text-white' : 'from-green-200 to-yellow-200'}  py-2 px-6 rounded-md hover:scale-105 transition-transform duration-200 hover:font-bold`}>
+                                type='submit' className={`bg-gradient-to-r ${theme === 'dark' ? 'from-fuchsia-600 to-yellow-700 text-white' : 'from-green-200 to-yellow-200'}  py-2 px-6 rounded-md hover:scale-105 transition-transform duration-200 hover:font-bold`}
+                                disabled={state.submitting}>
                                 Send
                             </button>
                         </div>
