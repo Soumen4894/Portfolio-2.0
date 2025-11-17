@@ -4,9 +4,11 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { TfiEmail } from 'react-icons/tfi';
 import { useForm } from '@formspree/react';
 import { themeContext } from '../context/Context';
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
     const { theme } = useContext(themeContext);
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -30,7 +32,10 @@ const Contact = () => {
                 </p>
 
                 <button
-                    onClick={() => window.location.reload()}
+                    onClick={() =>
+                        //  window.location.reload()
+                        navigate('/')
+                        }
                     className={`bg-gradient-to-r ${theme === "dark"
                             ? "from-fuchsia-600 to-yellow-700 text-white"
                             : "from-green-300 to-yellow-300 text-black"
