@@ -118,6 +118,7 @@ const Contact = () => {
                             className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
                             type="text"
                             placeholder="Phone"
+                            name='Mobile Number'
                         />
                         <textarea
                             className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
