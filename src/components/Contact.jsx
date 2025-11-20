@@ -5,18 +5,15 @@ import { TfiEmail } from 'react-icons/tfi';
 import { useForm } from '@formspree/react';
 import { themeContext } from '../context/Context';
 import { useNavigate } from 'react-router-dom';
+import { s } from 'framer-motion/client';
 
 const Contact = () => {
     const { theme } = useContext(themeContext);
     const navigate = useNavigate();
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [message, setMessage] = useState('');
-
 
     const [state, handleSubmit] = useForm("mwpanpjl");
     if (state.succeeded) {
+        console.log(state);
         return (
             <div
                 className={`flex flex-col items-center justify-center text-center min-h-screen p-10 
@@ -99,7 +96,7 @@ const Contact = () => {
                         </div>
                         <div>
                             <h2 className="text-lg font-semibold">Email</h2>
-                            <p>soumenmandal0008@gmail.com</p>
+                            <p>soumen.mandal7@outlook.com</p>
                         </div>
                     </div>
                 </div>
@@ -112,11 +109,11 @@ const Contact = () => {
                             className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
                             // value={name} type="text" onChange={(e => setName(e.target.value))}
                             placeholder="Name"
-                            name='name'
+                            name='Name'
                         />
                         <input
                             className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
-                            id='email' type="email" name='email'
+                            id='email' type="email" name='Email'
                             placeholder="Email"
                         />
                         <input
@@ -127,7 +124,7 @@ const Contact = () => {
                         />
                         <textarea
                             className={`text-black p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 ${theme === 'dark' ? 'focus:ring-fuchsia-600' : 'focus:ring-green-400'} `}
-                            id='message' name='message' placeholder="Message"
+                            id='message' name='Message' placeholder="Message"
                         />
                         <div className="flex justify-center">
                             <button
